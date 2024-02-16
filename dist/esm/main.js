@@ -9,7 +9,7 @@ const EPSILON = 1e-16;
  * @param {Number} x
  * @param {Number} a
  * @param {Object} [options] - function options
- * @param {Boolean} [options.lower=true] - boolean indicating whether to compute the lower (`true`) or upper (`false`) incomplete gamma function
+ * @param {Boolean} [options.upper=false] - boolean indicating whether to compute the lower (`false`) or upper (`true`) incomplete gamma function
  * @param {Boolean} [options.regularized=true] - boolean indicating if the function should evaluate the regularized or non-regularized incomplete gamma functions
  * @returns {Number} function value(s)
  */
@@ -23,25 +23,25 @@ export function gammainc(x, a, options) {
     if (x === null || isNaN(x)) {
         return NaN;
     }
-    let lower;
+    let upper;
     let regularized;
     if (options === undefined) {
-        lower = true;
+        upper = false;
         regularized = true;
     }
     else {
         // tail
-        lower = (options.lower === undefined)
-            ? true
-            : options.lower;
+        upper = (options.upper === undefined)
+            ? false
+            : options.upper;
         // regularized
         regularized = (options.regularized === undefined)
             ? true
             : options.regularized;
     }
-    return (lower)
-        ? gammainc_l(x, a, regularized)
-        : gammainc_u(x, a, regularized);
+    return (upper)
+        ? gammainc_u(x, a, regularized)
+        : gammainc_l(x, a, regularized);
 }
 // UPPER INCOMPLETE GAMMA FUNCTION
 // via modified Lentz's method for computing continued fraction, see README.md

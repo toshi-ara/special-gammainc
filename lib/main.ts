@@ -5,7 +5,7 @@ import { gammaln } from "@toshiara/special-gammaln";
 const EPSILON = 1e-16;
 
 type Option = {
-    lower?: boolean,
+    upper?: boolean,
     regularized?: boolean
 }
 
@@ -19,7 +19,7 @@ type Option = {
  * @param {Number} x
  * @param {Number} a
  * @param {Object} [options] - function options
- * @param {Boolean} [options.lower=true] - boolean indicating whether to compute the lower (`true`) or upper (`false`) incomplete gamma function
+ * @param {Boolean} [options.upper=false] - boolean indicating whether to compute the lower (`false`) or upper (`true`) incomplete gamma function
  * @param {Boolean} [options.regularized=true] - boolean indicating if the function should evaluate the regularized or non-regularized incomplete gamma functions
  * @returns {Number} function value(s)
  */
@@ -34,17 +34,17 @@ export function gammainc(x: number, a: number, options?: Option): number {
         return NaN;
     }
 
-    let lower;
+    let upper;
     let regularized;
 
     if (options === undefined) {
-        lower = true;
+        upper = false;
         regularized = true;
     } else {
         // tail
-        lower = (options.lower === undefined)
-            ? true
-            : options.lower;
+        upper = (options.upper === undefined)
+            ? false
+            : options.upper;
 
         // regularized
         regularized = (options.regularized === undefined)
@@ -52,9 +52,9 @@ export function gammainc(x: number, a: number, options?: Option): number {
             : options.regularized;
     }
 
-    return (lower)
-        ? gammainc_l(x, a, regularized)
-        : gammainc_u(x, a, regularized);
+    return (upper)
+        ? gammainc_u(x, a, regularized)
+        : gammainc_l(x, a, regularized);
 }
 
 

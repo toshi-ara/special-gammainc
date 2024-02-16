@@ -82,9 +82,9 @@ For both the regularized and unregularized versions
 
 The function accepts the following `options`:
 
-* __lower__:`boolean` indicating whether to evaluate
-  the *lower* (`true`) or *upper* (`false`) incomplete gamma function.
-  Default: `true`.
+* __upper__:`boolean` indicating whether to evaluate
+  the *lower* (`false`) or *upper* (`true`) incomplete gamma function.
+  Default: `false`.
 * __regularized__: `boolean` indicating if the `function` should compute
   the *regularized* (`true`) or *unregularized* (`false`)
   incomplete gamma functions. Default: `true`.
@@ -100,7 +100,7 @@ To evaluate the *upper* function instead,
 gammainc(9, 3);
 // returns 0.9937678048936227
 
-gammainc(9, 3, { lower: false });
+gammainc(9, 3, { upper: true });
 // returns 0.006232195106377313
 ```
 
@@ -109,7 +109,7 @@ gammainc(9, 3, { lower: false });
 gammainc(9, 3, { regularized: false });
 // returns 1.9875356097872454
 
-gammainc(9, 3, { lower: false, regularized: false });
+gammainc(9, 3, { upper: true, regularized: false });
 // returns 0.012464390212754625
 ```
 

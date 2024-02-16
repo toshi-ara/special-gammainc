@@ -1,5 +1,5 @@
 type Option = {
-    lower?: boolean;
+    upper?: boolean;
     regularized?: boolean;
 };
 /**
@@ -9,7 +9,7 @@ type Option = {
  * @param {Number} x
  * @param {Number} a
  * @param {Object} [options] - function options
- * @param {Boolean} [options.lower=true] - boolean indicating whether to compute the lower (`true`) or upper (`false`) incomplete gamma function
+ * @param {Boolean} [options.upper=false] - boolean indicating whether to compute the lower (`false`) or upper (`true`) incomplete gamma function
  * @param {Boolean} [options.regularized=true] - boolean indicating if the function should evaluate the regularized or non-regularized incomplete gamma functions
  * @returns {Number} function value(s)
  */

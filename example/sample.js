@@ -1,10 +1,13 @@
-const { gamma } = require("@toshiara/special-gamma");
+const { gammainc } = require("@toshiara/special-gammainc");
 
-let x = [
-    4.0, -1.5, -0.5, 0.0, -0.0, NaN
-];
+const x = 9;
+const a = 3;
 
-for (let i = 0; i < x.length; i++) {
-    console.log("gamma(", x[i], ") =", gamma(x[i]));
-}
+console.log("gammainc(9, 3) =", gammainc(x, a));
+console.log("gammainc(9, 3, { upper: true }) =",
+    gammainc(x, a, { upper: true}));
+console.log("gammainc(9, 3, { regularized: false }) =",
+    gammainc(x, a, { regularized: false }));
+console.log("gammainc(9, 3, { upper: true, regularized: false }) =",
+    gammainc(x, a, { upper: true, regularized: false }));
 

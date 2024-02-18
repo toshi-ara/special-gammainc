@@ -142,7 +142,7 @@ To evaluate the upper incomplete gamma function,
  [Gauss' continued fraction expansion](https://en.wikipedia.org/wiki/Gauss%27s_continued_fraction) is used:
 
 ```math
-Q(x, a) = \dfrac{1}{\Gamma(a)}\dfrac{x^a e^{-x}}{1+x-a+ \dfrac{a-1}{3+x-a+ \dfrac{2(a-2)}{5+x-a+ \dfrac{3(a-3)} {7+x-a+ \dfrac{4(a-4)}{9+x-a+ \ddots}}}}}
+Q(x, a) = \dfrac{1}{\Gamma(a)}\dfrac{x^a e^{-x}}{1+x-a+ \dfrac{a-1}{3+x-a+ \dfrac{2(a-2)}{5+x-a+ \dfrac{3(a-3)} {7+x-a+ \dfrac{4(a-4)}{9+x-a+ \cdots}}}}}
 ```
 
 

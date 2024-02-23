@@ -48,7 +48,7 @@
         "url": "https://github.com/toshi-ara/special-gammainc"
     },
     "dependencies": {
-        "@toshiara/special-gamma": "^1.0.1",
-        "@toshiara/special-gammaln": "^1.0.2"
+        "@toshiara/special-gamma": "^1.0.2",
+        "@toshiara/special-gammaln": "^1.0.3"
     }
 }

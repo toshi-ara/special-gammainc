@@ -13,7 +13,7 @@ const EPSILON = 1e-16;
  * @param {Boolean} [options.regularized=true] - boolean indicating if the function should evaluate the regularized or non-regularized incomplete gamma functions
  * @returns {Number} function value(s)
  */
-export function gammainc(x, a, options) {
+export function gammainc(x, a, { upper = false, regularized = true } = {}) {
     if (x === 0) {
         return 0;
     }
@@ -23,22 +23,21 @@ export function gammainc(x, a, options) {
     if (x === null || isNaN(x)) {
         return NaN;
     }
-    let upper;
-    let regularized;
-    if (options === undefined) {
-        upper = false;
-        regularized = true;
-    }
-    else {
-        // tail
-        upper = (options.upper === undefined)
-            ? false
-            : options.upper;
-        // regularized
-        regularized = (options.regularized === undefined)
-            ? true
-            : options.regularized;
-    }
+    // let upper;
+    // let regularized;
+    // if (options === undefined) {
+    //     upper = false;
+    //     regularized = true;
+    // } else {
+    //     // tail
+    //     upper = (options.upper === undefined)
+    //         ? false
+    //         : options.upper;
+    //     // regularized
+    //     regularized = (options.regularized === undefined)
+    //         ? true
+    //         : options.regularized;
+    // }
     return (upper)
         ? gammainc_u(x, a, regularized)
         : gammainc_l(x, a, regularized);

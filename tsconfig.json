@@ -4,7 +4,7 @@
         "module": "es6",
         "strict": true,
         "declaration": true,
-        "sourceMap": true,
+        "sourceMap": false,
         "outDir": "./dist/esm",
         "esModuleInterop": true,
         "skipLibCheck": true,

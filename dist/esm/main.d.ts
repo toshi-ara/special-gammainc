@@ -1,4 +1,4 @@
-type Option = {
+type TypeOption = {
     upper?: boolean;
     regularized?: boolean;
 };
@@ -13,5 +13,5 @@ type Option = {
  * @param {Boolean} [options.regularized=true] - boolean indicating if the function should evaluate the regularized or non-regularized incomplete gamma functions
  * @returns {Number} function value(s)
  */
-export declare function gammainc(x: number, a: number, options?: Option): number;
+export declare function gammainc(x: number, a: number, { upper, regularized }?: TypeOption): number;
 export {};

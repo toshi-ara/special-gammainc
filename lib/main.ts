@@ -4,7 +4,7 @@ import { gammaln } from "@toshiara/special-gammaln";
 
 const EPSILON = 1e-16;
 
-type Option = {
+type TypeOption = {
     upper?: boolean,
     regularized?: boolean
 }
@@ -23,7 +23,10 @@ type Option = {
  * @param {Boolean} [options.regularized=true] - boolean indicating if the function should evaluate the regularized or non-regularized incomplete gamma functions
  * @returns {Number} function value(s)
  */
-export function gammainc(x: number, a: number, options?: Option): number {
+export function gammainc(x: number, a: number, {
+                            upper = false,
+                            regularized = true
+                         }: TypeOption = {}): number {
     if (x === 0) {
         return 0;
     }
@@ -32,24 +35,6 @@ export function gammainc(x: number, a: number, options?: Option): number {
     }
     if (x === null || isNaN(x)) {
         return NaN;
-    }
-
-    let upper;
-    let regularized;
-
-    if (options === undefined) {
-        upper = false;
-        regularized = true;
-    } else {
-        // tail
-        upper = (options.upper === undefined)
-            ? false
-            : options.upper;
-
-        // regularized
-        regularized = (options.regularized === undefined)
-            ? true
-            : options.regularized;
     }
 
     return (upper)

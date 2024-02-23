@@ -26,21 +26,6 @@ function gammainc(x, a, { upper = false, regularized = true } = {}) {
     if (x === null || isNaN(x)) {
         return NaN;
     }
-    // let upper;
-    // let regularized;
-    // if (options === undefined) {
-    //     upper = false;
-    //     regularized = true;
-    // } else {
-    //     // tail
-    //     upper = (options.upper === undefined)
-    //         ? false
-    //         : options.upper;
-    //     // regularized
-    //     regularized = (options.regularized === undefined)
-    //         ? true
-    //         : options.regularized;
-    // }
     return (upper)
         ? gammainc_u(x, a, regularized)
         : gammainc_l(x, a, regularized);
@@ -129,4 +114,3 @@ function gammainc_l(x, s, regularized) {
     } while (c / pws > EPSILON);
     return pws * ft / s;
 }
-//# sourceMappingURL=main.js.map
